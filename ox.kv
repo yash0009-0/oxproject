@@ -1,0 +1,147 @@
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+<Window>:
+    transition: FadeTransition(duration=0.2)
+    First:
+    Second:
+
+<First>:
+    name: "first"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: " "
+            size_hint: 1,.05
+        Round:
+            text: " "
+            size_hint: None,None
+            size: '60dp','60dp'
+            pos_hint: {'right': .95}
+            on_release: root.sound_reset()
+        Label:
+            text: ""
+            size_hint: 1,.6
+        BoxLayout:
+            orientation: "vertical"
+            GridLayout:
+                cols:7
+                Label:
+                RoundButton:
+                    id: b_1
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(0)
+                Label:
+                RoundButton:
+                    id: b_2
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(1)
+                Label:
+                RoundButton:
+                    id: b_3
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(2)
+                Label:
+
+            GridLayout:
+                cols:7
+                Label:
+                RoundButton:
+                    id: b_4
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(3)
+                Label:
+                RoundButton:
+                    id: b_5
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(4)
+                Label:
+                RoundButton:
+                    id: b_6
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(5)
+                Label:
+            
+            GridLayout:
+                cols:7
+                Label:
+                RoundButton:
+                    id: b_7
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(6)
+                Label:
+                RoundButton:
+                    id: b_8
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(7)
+                Label:
+                RoundButton:
+                    id: b_9 
+                    size_hint: None,None
+                    size: '70dp','70dp'
+                    font_size: "35sp"
+                    on_release: root.on_press(8)
+                Label:
+        Label:
+            size_hint: 1,.1
+        Label:
+            id: turn_text
+            size_hint: 1,0.7
+            markup: True
+            halign: "center"
+            valign: "top"
+            text_size: self.size
+            font_size: "25sp"
+            text: "[color=EF2929]O[/color] [color=D3D7CF]turn[/color]"
+
+<Second>:
+    name: "second"
+    BoxLayout:
+        orientation: "vertical"
+        Button:
+            id: b__
+            markup: True
+            background_color: (0,0,0,0)
+            text: self.text
+            font_size: "35sp"
+            on_release: app.root.current = "first"
+
+<RoundButton>:
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: self.rgba
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [1000]
+<Round@Button>:
+    background_color: (0,0,0,0)
+    background_normal: ''
+    canvas.before:
+        Color:
+            rgba: (.1,.1,.1,1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [1000]
+    Image:
+        source: 'image/image.png'
+        center: self.parent.center
+        size_hint: None, None
+        size: self.parent.size
